@@ -40,7 +40,7 @@ plot_ly(inspect2 ,x = ~boro, y = ~score_count, type = "bar", colors = "viridis")
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-**### Figure 2**
+### Chart B
 
 ```{r, echo=FALSE, message=FALSE}
 
@@ -59,7 +59,7 @@ plot_ly(inspect4, x = ~boro, y = ~score, color = ~boro, type = "box") %>%
   
 ```
 
-### Figure 3
+### Chart C
 
 ```{r, echo=FALSE, message=FALSE}
 inspect4 = inspect1 %>% 
