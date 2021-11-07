@@ -16,31 +16,15 @@ library(flexdashboard)
 data("rest_inspec")
 ```
 
-```{r, include=FALSE}
-inspect1 = rest_inspec %>% 
-  drop_na(score) %>% 
-  sample_n(10000) 
-
-inspect2 = inspect1 %>% 
-  filter(score > 60) %>% 
-  group_by(boro) %>% 
-  summarize(score_count = n())
-
-
-plot_ly(inspect2 ,x = ~boro, y = ~score_count, type = "bar", colors = "viridis") %>% 
-  layout(title = 'Scores of > 60 by Borough',
-         xaxis = list(title = 'Boroughs of NY'),
-         yaxis = list(title = 'Count'))
-  
-```
-
 Column {data-width=650}
-------------------------------------
+-----------------------------------------------------------------------
 
-```{r}
+### Chart A
+
+```{r, echo=FALSE, message=FALSE}
 inspect1 = rest_inspec %>% 
   drop_na(score) %>% 
-  sample_n(10000) 
+  sample_n(10000)
 
 inspect2 = inspect1 %>% 
   filter(score > 60) %>% 
@@ -54,15 +38,41 @@ plot_ly(inspect2 ,x = ~boro, y = ~score_count, type = "bar", colors = "viridis")
 ```
 
 Column {data-width=350}
-------------------------------------
+-----------------------------------------------------------------------
 
-### Chart B
+**### Figure 2**
 
-```{r}
-inspect3 = inspect1 %>% 
-  filter(inspection_type == "Cycle Inspection / Initial Inspection") %>% 
-  drop_na(grade)
+```{r, echo=FALSE, message=FALSE}
+
+inspect4 = inspect1 %>% 
+  janitor::clean_names() %>%
+  drop_na() %>% 
+  filter(cuisine_description == "American") %>%
+  group_by(boro) %>% 
+  mutate(boro = as.factor(boro)) 
+
+plot_ly(inspect4, x = ~boro, y = ~score, color = ~boro, type = "box") %>% 
+  layout(title = 'Distribution of Health Scores for American-Style Restaurants Across Boroughs',
+         xaxis = list(title = 'Boroughs of NY'),
+         yaxis = list(title = 'Score Distribution'))
+
   
 ```
 
-### Chart C 
+### Figure 3
+
+```{r, echo=FALSE, message=FALSE}
+inspect4 = inspect1 %>% 
+  janitor::clean_names() %>%
+  drop_na() %>% 
+  filter(cuisine_description == "American") %>%
+  group_by(boro) %>% 
+  mutate(boro = as.factor(boro)) 
+
+plot_ly(inspect4, x = ~boro, y = ~score, color = ~boro, type = "box") %>% 
+  layout(title = 'Distribution of Health Scores for American-Style Restaurants Across Boroughs',
+         xaxis = list(title = 'Boroughs of NY'),
+         yaxis = list(title = 'Score Distribution'))
+
+```
+
