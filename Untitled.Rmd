@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "My Plots"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -15,7 +15,7 @@ library(flexdashboard)
 data("rest_inspec")
 ```
 
-```{r}
+```{r, include=FALSE}
 inspect1 = rest_inspec %>% 
   drop_na(score) %>% 
   sample_n(10000) 
