@@ -2,9 +2,10 @@
 title: "My Plots"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
+    orientation: column
     vertical_layout: fill
     theme: united
+    source: embed
 ---
 
 ```{r setup, include=FALSE}
@@ -17,7 +18,7 @@ data("rest_inspec")
 ```
 
 Column {data-width=650}
------------------------------------------------------------------------
+--------------------------------------------------------------------
 
 ### Chart A
 
@@ -38,7 +39,7 @@ plot_ly(inspect2 ,x = ~boro, y = ~score_count, type = "bar", colors = "viridis")
 ```
 
 Column {data-width=350}
------------------------------------------------------------------------
+-------------------------------------------------------------------
 
 ### Chart B
 

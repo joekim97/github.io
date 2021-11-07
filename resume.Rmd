@@ -29,4 +29,19 @@ output:
 
 -----
 
-### Work Experience:
+### **Work Experience:**
+
+**UConn Rudd Center of Food Policy and Obesity**, Hartford, CT 
+
+  * Planned and executed comprehensive evaluation for the U.S.D.A and Connecticut 
+    State Department of education regarding summer meal program in state
+  * Created novel food inventory taxonomy based on national nutrition standards for     improved organization in food banks and food pantries using Access and SQL
+  * Lead data management/analysis for various projects regarding food insecurity,      nutrition, and policy through survey data analysis with SPSS
+
+&nbsp;
+
+**Project Achieve**, New York City, NYC 
+
+  * Collaborated with Principal investigator and lab members on initiation of          COVID vaccine Phase 3 clinical trials (AstraZeneca, Johnson and Johnson).
+  * Developed and executed community involvement and engagement programs for both      COVID-19 vaccine and HIV vaccine promotion campaigns.
+  * Spearheaded management of study patient data through Excel/Clinical Conductor
