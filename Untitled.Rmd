@@ -1,0 +1,67 @@
+---
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(dplyr)
+library(p8105.datasets)
+library(plotly)
+library(flexdashboard)
+data("rest_inspec")
+```
+
+```{r}
+inspect1 = rest_inspec %>% 
+  drop_na(score) %>% 
+  sample_n(10000) 
+
+inspect2 = inspect1 %>% 
+  filter(score > 60) %>% 
+  group_by(boro) %>% 
+  summarize(score_count = n())
+
+
+plot_ly(inspect2 ,x = ~boro, y = ~score_count, type = "bar", colors = "viridis") %>% 
+  layout(title = 'Scores of > 60 by Borough',
+         xaxis = list(title = 'Boroughs of NY'),
+         yaxis = list(title = 'Count'))
+  
+```
+
+Column {data-width=650}
+------------------------------------
+
+```{r}
+inspect1 = rest_inspec %>% 
+  drop_na(score) %>% 
+  sample_n(10000) 
+
+inspect2 = inspect1 %>% 
+  filter(score > 60) %>% 
+  group_by(boro) %>% 
+  summarize(score_count = n())
+
+plot_ly(inspect2 ,x = ~boro, y = ~score_count, type = "bar", colors = "viridis") %>% 
+  layout(title = 'Scores of > 60 by Borough',
+         xaxis = list(title = 'Boroughs of NY'),
+         yaxis = list(title = 'Count'))
+```
+
+Column {data-width=350}
+------------------------------------
+
+### Chart B
+
+```{r}
+inspect3 = inspect1 %>% 
+  filter(inspection_type == "Cycle Inspection / Initial Inspection") %>% 
+  drop_na(grade)
+  
+```
+
+### Chart C 
