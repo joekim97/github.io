@@ -70,7 +70,7 @@ inspect5 = inspect1 %>%
   group_by(boro) %>% 
   mutate(boro = as.factor(boro)) 
 
-plot_ly(inspect4, x = ~boro, y = ~score, color = ~boro, type = "box") %>% 
+plot_ly(inspect5, x = ~boro, y = ~score, color = ~boro, type = "box") %>% 
   layout(title = 'Distribution of Health Scores for Chinese-Style Restaurants Across Boroughs',
          xaxis = list(title = 'Boroughs of NY'),
          yaxis = list(title = 'Score Distribution'))
