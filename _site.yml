@@ -15,4 +15,4 @@ navbar:
       href: http://github.com/joekim97/
 output:
   html_document:
-    theme: cerulean
+    theme: united
